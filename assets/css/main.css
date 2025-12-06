@@ -4,6 +4,8 @@
 
 
 .header {
+  font-family: "Bricolage-Grotesque", "DM-Sans", sans-serif;
+
   padding: 3.2rem 0;
   margin-bottom: 3.2rem;
 }
@@ -22,6 +24,15 @@
 
 .units-btn img:first-child {
   height: 1.6rem;
+}
+
+
+/*******************************/
+/* SEARCH SECTION */
+/*******************************/
+
+.search-section {
+  margin-bottom: 3.2rem;
 }
 
 .search-container {
@@ -67,3 +78,124 @@
   background-color: #4455da;
 }
 
+
+/*******************************/
+/* WEATHER SECTION */
+/*******************************/
+
+
+.weather-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3.2rem;
+}
+
+.current-weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 30rem;
+
+  border-radius: 25px;
+
+  background-image: url('../images/bg-today-large.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  margin-bottom: 3.2rem;
+  padding: 0 2.4rem;
+}
+
+
+.location {
+  font-size: 3rem;
+  font-weight: 600;
+
+  margin-bottom: 1.6rem;
+}
+
+.date-time {
+  color: #d5d4d9;
+  font-size: 2rem;
+}
+
+.icon-temperature-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.current-weather-icon {
+  height: 10rem;
+}
+
+.temperature-degree {
+  font-style: italic;
+  font-size: 7.4rem;
+  font-weight: 600;
+}
+
+.weather-metrics {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 6.4rem;
+}
+
+.weather-metrics .card {
+  padding: 1.6rem;
+  width: 20rem;
+
+}
+
+.metric-title {
+  font-size: 2rem;
+  color: #d5d4d9;
+
+  margin-bottom: 2.4rem;
+}
+
+.metric-value {
+  font-size: 3.6rem;
+  font-weight: 400;
+}
+
+
+.daily-forcast h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 3.2rem;
+}
+
+.daily-forcast-day-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.daily-forcast-card {
+  display: flex;
+  gap: 1.6rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 11rem;
+}
+
+.daily-forcast-icon {
+  height: 7rem;
+}
+
+.temperature {
+  display: flex;
+  gap: 3.2rem;
+}
+
+.hourly-forcast {
+  height: 900px;
+  background-color: hsl(243, 23%, 24%);
+  border-radius: 25px;
+}

@@ -1,52 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="assets/css/fonts.css">
-  <link rel="stylesheet" href="assets/css/general.css">
-  <link rel="stylesheet" href="assets/css/main.css">
-  
-  <title>Frontend Mentor | Weather app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/general.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header class="header">
-      <nav class="main-nav">
-        <a href="#">
-          <img src="assets/images/logo.svg" alt="weather-app logo, sun logo">
-        </a>
-        <button class="btn units-btn">
-          <img src="assets/images/icon-units.svg" alt="">
-          <span>Units</span>
-          <img src="assets/images/icon-dropdown.svg" alt="down arrow icon">
-        </button>
-      </nav>
+    <title>Frontend Mentor | Weather app</title>
 
-      <h1 class="heading-primary">How's the sky looking today?</h1>
-    </header>
-    <section class="search-section">
-      <div class="search-container">
-        <img class="search-icon" src="assets/images/icon-search.svg" alt="search icon">
-        <input type="text" class="search-textbox" placeholder="Search for place...">
-        <button class="btn search-btn">Search</button>
-      </div>
-    </section>
-    <section class="weather-section"></section>
-  </div>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <nav class="main-nav">
+          <a href="#">
+            <img
+              src="assets/images/logo.svg"
+              alt="weather-app logo, sun logo"
+            />
+          </a>
+          <button class="btn units-btn">
+            <img src="assets/images/icon-units.svg" alt="" />
+            <span>Units</span>
+            <img src="assets/images/icon-dropdown.svg" alt="down arrow icon" />
+          </button>
+        </nav>
 
+        <h1 class="heading-primary">How's the sky looking today?</h1>
+      </header>
+      <section class="search-section">
+        <div class="search-container">
+          <img
+            class="search-icon"
+            src="assets/images/icon-search.svg"
+            alt="search icon"
+          />
+          <input
+            type="text"
+            class="search-textbox"
+            placeholder="Search for place..."
+          />
+          <button class="btn search-btn">Search</button>
+        </div>
+      </section>
+      <section class="weather-section">
+        <div class="weather-details">
+          <div class="current-weather">
+            <div class="place-date-time-wrapper">
+              <p class="location">Berlin, Germarny</p>
+              <p class="date-time">Tuesday, Aug 5, 2025</p>
+            </div>
+            <div class="icon-temperature-wrapper">
+              <img
+                class="current-weather-icon"
+                src="assets/images/icon-sunny.webp"
+                alt="today's wether icon"
+              />
+              <span class="temperature-degree"
+                >20<sup class="degree-symbol degree-symbol--large">o</sup></span
+              >
+            </div>
+          </div>
+          <div class="weather-metrics">
+            <div class="card feels-like">
+              <p class="metric-title">Feels Like</p>
+              <p class="metric-value">
+                18<sup class="degree-symbol degree-symbol--small">&deg;</sup>
+              </p>
+            </div>
 
-  <!-- <div class="attribution">
+            <div class="card humidity">
+              <p class="metric-title">Humidity</p>
+              <p class="metric-value">46%</p>
+            </div>
+
+            <div class="card wind">
+              <p class="metric-title">Wind</p>
+              <p class="metric-value">14 km/h</p>
+            </div>
+
+            <div class="card precipitation">
+              <p class="metric-title">Precipitation</p>
+              <p class="metric-value">0 mm</p>
+            </div>
+          </div>
+          <div class="daily-forcast">
+            <h3>Daily Forcast</h3>
+            <div class="daily-forcast-day-cards">
+              <div class="card daily-forcast-card">
+                <p class="day">Tue</p>
+                <img
+                  class="daily-forcast-icon"
+                  src="assets/images/icon-rain.webp"
+                  alt="wether icon"
+                />
+                <div class="temperature">
+                  <span class="high">20&deg;</span>
+                  <span class="low">14&deg;</span>
+                </div>
+              </div>
+              <div class="card daily-forcast-card">
+                <p class="day">Tue</p>
+                <img
+                  class="daily-forcast-icon"
+                  src="assets/images/icon-rain.webp"
+                  alt="wether icon"
+                />
+                <div class="temperature">
+                  <span class="high">20&deg;</span>
+                  <span class="low">14&deg;</span>
+                </div>
+              </div>
+              <div class="card daily-forcast-card">
+                <p class="day">Tue</p>
+                <img
+                  class="daily-forcast-icon"
+                  src="assets/images/icon-rain.webp"
+                  alt="wether icon"
+                />
+                <div class="temperature">
+                  <span class="high">20&deg;</span>
+                  <span class="low">14&deg;</span>
+                </div>
+              </div>
+              <div class="card daily-forcast-card">
+                <p class="day">Tue</p>
+                <img
+                  class="daily-forcast-icon"
+                  src="assets/images/icon-rain.webp"
+                  alt="wether icon"
+                />
+                <div class="temperature">
+                  <span class="high">20&deg;</span>
+                  <span class="low">14&deg;</span>
+                </div>
+              </div>
+              <div class="card daily-forcast-card">
+                <p class="day">Tue</p>
+                <img
+                  class="daily-forcast-icon"
+                  src="assets/images/icon-rain.webp"
+                  alt="wether icon"
+                />
+                <div class="temperature">
+                  <span class="high">20&deg;</span>
+                  <span class="low">14&deg;</span>
+                </div>
+              </div>
+              <div class="card daily-forcast-card">
+                <p class="day">Tue</p>
+                <img
+                  class="daily-forcast-icon"
+                  src="assets/images/icon-rain.webp"
+                  alt="wether icon"
+                />
+                <div class="temperature">
+                  <span class="high">20&deg;</span>
+                  <span class="low">14&deg;</span>
+                </div>
+              </div>
+              <div class="card daily-forcast-card">
+                <p class="day">Tue</p>
+                <img
+                  class="daily-forcast-icon"
+                  src="assets/images/icon-rain.webp"
+                  alt="wether icon"
+                />
+                <div class="temperature">
+                  <span class="high">20&deg;</span>
+                  <span class="low">14&deg;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hourly-forcast"></div>
+      </section>
+    </div>
+
+    <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
-</body>
+  </body>
 </html>
