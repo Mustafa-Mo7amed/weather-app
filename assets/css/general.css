@@ -101,8 +101,22 @@ body {
   margin: 0 auto;
 }
 
-
 .heading-primary {
   font-size: 5.2rem;
   text-align: center;
+}
+
+.btn {
+  background-color: #312f4b;
+  color: #fff;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+
+  border: none;
+  border-radius: 9px;
+
+  padding: 0.4rem 0.8rem;
+
+  cursor: pointer;;
 }
