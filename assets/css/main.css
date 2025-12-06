@@ -1,0 +1,36 @@
+/*******************************/
+/* HEADER */
+/*******************************/
+
+
+.header {
+  padding: 3.2rem 0;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.units-btn {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+
+  background-color: #312f4b;
+  color: #fff;
+  
+  font-size: 1.6rem;
+  font-weight: 500;
+  
+  border: none;
+  border-radius: 9px;
+  
+  padding: 0.4rem 0.8rem;
+}
+
+.units-btn img:first-child {
+  height: 1.6rem;
+}
+
+

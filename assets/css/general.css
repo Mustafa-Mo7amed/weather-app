@@ -53,6 +53,27 @@ Medium: 11px
 - SPACING SYSTEM (px)
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
+## Colors
+
+### Neutral
+
+- **Neutral 900**: hsl(243, 96%, 9%)
+- **Neutral 800**: hsl(243, 27%, 20%)
+- **Neutral 700**: hsl(243, 23%, 24%)
+- **Neutral 600**: hsl(243, 23%, 30%)
+- **Neutral 300**: hsl(240, 6%, 70%)
+- **Neutral 200**: hsl(250, 6%, 84%)
+- **Neutral 0**: hsl(0, 0%, 100%)
+
+### Orange
+
+- **Orange 500**: hsl(28, 100%, 52%)
+
+### Blue
+
+- **Blue 500**: hsl(233, 67%, 56%)
+- **Blue 700**: hsl(248, 70%, 36%)
+
 */
 
 * {
@@ -69,11 +90,19 @@ body {
   font-family: "Bricolage-Grotesque", "DM-Sans", sans-serif;
   line-height: 1;
   font-weight: 400;
-  /* color: #555; */
+  font-size: 1.8rem;
+  background-color: #03012d;
+  color: #fff;
 }
 
 .container {
-  max-width: 120rem;
+  max-width: 140rem;
   padding: 0 3.2rem;
   margin: 0 auto;
+}
+
+
+.heading-primary {
+  font-size: 5.2rem;
+  text-align: center;
 }
