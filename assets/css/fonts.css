@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'DM-Sans';
+  src: url('../fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM-Sans';
+  src: url('../fonts/DM_Sans/DMSans-Italic-VariableFont_opsz\,wght.ttf');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bricolage-Grotesque';
+  src: url('../fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz\,wdth\,wght.ttf');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
