@@ -2,7 +2,6 @@
 /* HEADER */
 /*******************************/
 
-
 .header {
   font-family: "Bricolage-Grotesque", "DM-Sans", sans-serif;
 
@@ -14,6 +13,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 3.2rem;
+
+  position: relative;
 }
 
 .units-btn {
@@ -26,6 +27,48 @@
   height: 1.6rem;
 }
 
+.hidden {
+  display: none;
+}
+
+.units-dropdown {
+  width: 20rem;
+
+  padding: 0.8rem;
+
+  background-color: hsl(243, 27%, 20%);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+
+  transition: all 0.3s;
+
+  position: absolute;
+  right: 0;
+  top: 120%;
+}
+
+.dropdown-btn {
+  padding: 0.8rem 1.6rem;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-section {
+  padding-top: 1.2rem;
+}
+
+.dropdown-section-title {
+  margin: 0 1.2rem;
+  margin-bottom: 0.8rem;
+  padding-left: 0.4rem;
+  font-size: 1.4rem;
+  color: #d5d4d9;
+}
+
+.dropdown-section + .dropdown-section {
+  border-top: 2px solid hsl(243, 23%, 24%);
+}
 
 /*******************************/
 /* SEARCH SECTION */
@@ -33,6 +76,7 @@
 
 .search-section {
   margin-bottom: 3.2rem;
+  position: relative;
 }
 
 .search-container {
@@ -53,7 +97,7 @@
   left: 22px;
   transform: translateY(-50%);
 
-  background-image: url('../images/icon-search.svg');
+  background-image: url("../images/icon-search.svg");
 }
 
 .search-textbox {
@@ -64,7 +108,7 @@
   border-radius: 9px;
   border: none;
 
-  background-color: hsl(243, 27%, 20%); 
+  background-color: hsl(243, 27%, 20%);
 
   padding-left: 6.4rem;
 }
@@ -78,11 +122,44 @@
   background-color: #4455da;
 }
 
+.search-results {
+  display: none;
+  background-color: hsl(243, 27%, 20%);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+
+  width: 46.13rem;
+
+  padding: 0.8rem;
+
+  position: absolute;
+  top: 115%;
+  left: 50%;
+  transform: translateX(-65%);
+}
+
+.search-result {
+  padding: 0.8rem 1.6rem;
+  width: 100%;
+  text-align: left;
+
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background-color: hsl(243, 23%, 30%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.search-result + .search-result {
+  margin-top: 0.4rem;
+}
 
 /*******************************/
 /* WEATHER SECTION */
 /*******************************/
-
 
 .weather-section {
   display: grid;
@@ -101,7 +178,7 @@
 
   border-radius: 20px;
 
-  background-image: url('../images/bg-today-large.svg');
+  background-image: url("../images/bg-today-large.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -109,7 +186,6 @@
   margin-bottom: 3.2rem;
   padding: 0 2.4rem;
 }
-
 
 .location {
   font-size: 3rem;
@@ -150,7 +226,6 @@
 .weather-metrics .card {
   padding: 1.6rem;
   width: 20rem;
-
 }
 
 .metric-title {
@@ -198,8 +273,6 @@
   border-radius: 20px;
 
   padding: 2.4rem;
-
-
 }
 
 .hourly-forcast-header {
@@ -218,9 +291,9 @@
   place-items: center;
 
   background-color: hsl(243, 23%, 24%);
-  
+
   padding: 0.8rem 1.6rem;
-  
+
   font-size: 2rem;
 }
 

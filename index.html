@@ -32,7 +32,7 @@
     <div class="container">
       <header class="header">
         <nav class="main-nav">
-          <a href="#" class="logo  orange-focus">
+          <a href="#" class="logo orange-focus">
             <img
               src="assets/images/logo.svg"
               alt="weather-app logo, sun logo"
@@ -43,6 +43,24 @@
             <span>Units</span>
             <img src="assets/images/icon-dropdown.svg" alt="down arrow icon" />
           </button>
+          <div class="units-dropdown hidden">
+            <button class="btn dropdown-btn">Switch to Imperial</button>
+            <div class="dropdown-section">
+              <p class="dropdown-section-title">Temperature</p>
+              <button class="btn dropdown-btn">Celsius(&deg;C)</button>
+              <button class="btn dropdown-btn">Fehrenheit(&deg;F)</button>
+            </div>
+            <div class="dropdown-section">
+              <p class="dropdown-section-title">Wind Speed</p>
+              <button class="btn dropdown-btn">km/h</button>
+              <button class="btn dropdown-btn">mph</button>
+            </div>
+            <div class="dropdown-section">
+              <p class="dropdown-section-title">Precipitation</p>
+              <button class="btn dropdown-btn">Millimeters (mm)</button>
+              <button class="btn dropdown-btn">Inches (in)</button>
+            </div>
+          </div>
         </nav>
 
         <h1 class="heading-primary">How's the sky looking today?</h1>
@@ -60,6 +78,11 @@
             placeholder="Search for place..."
           />
           <button class="btn search-btn blue-focus">Search</button>
+        </div>
+        <div class="search-results">
+          <p class="search-result">City Name</p>
+          <p class="search-result">City Name</p>
+          <p class="search-result">City Name</p>
         </div>
       </section>
       <section class="weather-section">
