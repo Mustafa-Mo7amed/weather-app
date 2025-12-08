@@ -88,26 +88,27 @@
       <section class="weather-section">
         <div class="weather-details">
           <div class="current-weather">
-            <div class="place-date-time-wrapper">
+            <div class="place-date-wrapper">
               <p class="location">Berlin, Germarny</p>
-              <p class="date-time">Tuesday, Aug 5, 2025</p>
+              <p class="date">Tuesday, Aug 5, 2025</p>
             </div>
             <div class="icon-temperature-wrapper">
               <img
                 class="current-weather-icon"
-                src="assets/images/icon-sunny.webp"
+                src="assets/images/icon-rain.webp"
                 alt="today's wether icon"
               />
               <span class="temperature-degree"
-                >20<sup class="degree-symbol degree-symbol--large">o</sup></span
+                ><span>20</span
+                ><sup class="degree-symbol degree-symbol--large">o</sup></span
               >
             </div>
           </div>
           <div class="weather-metrics">
             <div class="card feels-like">
               <p class="metric-title">Feels Like</p>
-              <p class="metric-value">
-                18<sup class="degree-symbol degree-symbol--small">&deg;</sup>
+              <p class="metric-value-wrapper">
+                <span class="metric-value">18</span><sup class="degree-symbol degree-symbol--small">&deg;</sup>
               </p>
             </div>
 
@@ -118,12 +119,14 @@
 
             <div class="card wind">
               <p class="metric-title">Wind</p>
-              <p class="metric-value">14 km/h</p>
+              <span class="metric-value">14</span>
+              <span class="metric-unit">km/h</span>
             </div>
 
             <div class="card precipitation">
               <p class="metric-title">Precipitation</p>
-              <p class="metric-value">0 mm</p>
+              <span class="metric-value">0</span>
+              <span class="metric-unit">mm</span>
             </div>
           </div>
           <div class="daily-forcast">

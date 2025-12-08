@@ -11,7 +11,7 @@ class App {
         console.log(api.imperialData);
         console.log(api.addressData);
         const curr = new CurrentWeather(api, WeatherComponent.STANDARD_UNITS);
-        console.log(curr.CurrentWeather());
+        console.log(curr.currentWeather());
       })
       .catch((err) => {
         console.log("Couldn't fetch your location: ", err);
