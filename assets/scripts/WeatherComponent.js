@@ -1,6 +1,7 @@
 export class WeatherComponent {
-    static STANDARD_UNITS = "STANDARD";
-    static IMPERIAL_UNITS = "IMPERIAL";
+  static STANDARD_UNITS = "STANDARD";
+  static IMPERIAL_UNITS = "IMPERIAL";
+
   render() {}
 
   getWeatherIcon(weatherCode) {
