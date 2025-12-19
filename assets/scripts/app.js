@@ -2,6 +2,7 @@ import { API } from "./API.js";
 import { CurrentWeather } from "./CurrentWeather.js";
 import { WeatherComponent } from "./WeatherComponent.js";
 import { DailyForcast } from "./DailyForcast.js";
+import { HourlyForcast } from "./HourlyForcast.js";
 
 class App {
   constructor() {
@@ -18,6 +19,8 @@ class App {
         console.log(curr.currentWeather());
 
         const daily = new DailyForcast(api, WeatherComponent.STANDARD_UNITS);
+
+        const hourly = new HourlyForcast(api, WeatherComponent.STANDARD_UNITS);
       },
       (err) => {
         console.log("Couldn't fetch your location: ", err);

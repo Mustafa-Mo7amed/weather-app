@@ -43,7 +43,7 @@ export class CurrentWeather extends WeatherComponent {
   currentWeather() {
     const curHourIdx = this.getNearestHourIndex();
     return {
-      temperature: this.api.current_weather.temperature,
+      temperature: Math.round(this.api.current_weather.temperature),
       weathercode: this.api.current_weather.weathercode,
       country: this.addressApi.address.country,
       city: this.addressApi.address.state,

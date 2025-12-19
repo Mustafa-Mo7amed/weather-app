@@ -18,8 +18,8 @@ export class DailyForcast extends WeatherComponent {
         order: order + 1,
         date: this.daily.time[order],
         weathercode: this.daily.weathercode[order],
-        max: this.daily.temperature_2m_max[order],
-        min: this.daily.temperature_2m_min[order],
+        max: Math.round(this.daily.temperature_2m_max[order]),
+        min: Math.round(this.daily.temperature_2m_min[order]),
       };
       this.renderCard(data);
     }
@@ -35,9 +35,9 @@ export class DailyForcast extends WeatherComponent {
       ".daily-forcast-icon"
     ).src = `./assets/images/${this.getWeatherIcon(data.weathercode)}`;
 
-    card.querySelector(".temperature .high").textContent = data.max;
-
-    card.querySelector(".temperature .low").textContent = data.min;
+    // TODO: innerHTML to handel &deg; (search for other ways)
+    card.querySelector(".temperature .high").innerHTML = `${data.max}&deg;`;
+    card.querySelector(".temperature .low").innerHTML = `${data.min}&deg;`;
   }
 
   getDay(date) {
