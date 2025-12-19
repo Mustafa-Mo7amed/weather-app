@@ -44,11 +44,14 @@ class App {
   switchUnitsHandler = (event) => {
     if (!event.target.matches("#switch-units")) return;
 
-    const isImperial = event.target.textContent.includes("Imperial");
-
-    event.target.textContent = isImperial
-      ? "Switch to Standard"
-      : "Switch to Imperial";
+    const isImperial = event.target.dataset.imperial === "true";
+    if (isImperial) {
+      event.target.textContent = "Switch to Standard";
+      event.target.dataset.imperial = "false";
+    } else {
+      event.target.textContent = "Switch to Imperial";
+      event.target.dataset.imperial = "true";
+    }
 
     document
       .querySelectorAll(".dropdown-section button")
