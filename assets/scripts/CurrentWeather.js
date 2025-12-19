@@ -3,6 +3,7 @@ import { WeatherComponent } from "./WeatherComponent.js";
 export class CurrentWeather extends WeatherComponent {
   constructor(apiInstance, units) {
     super();
+    this.units = units;
     if (units == WeatherComponent.STANDARD_UNITS) {
       this.api = apiInstance.standardData;
     } else {
@@ -31,12 +32,17 @@ export class CurrentWeather extends WeatherComponent {
 
     const feelsLikeEl = document.querySelector(".feels-like .metric-value");
     const humidityEl = document.querySelector(".humidity .metric-value");
-    const windspeedEl = document.querySelector(".wind .metric-value");
-    const precipitationEl = document.querySelector(".precipitation .metric-value");
+    const windEl = document.querySelector(".wind");
+    const precipitationEl = document.querySelector(
+      ".precipitation .metric-value"
+    );
 
     feelsLikeEl.textContent = currentWeather.weather_metrics.feels_like;
-    humidityEl.textContent = currentWeather.weather_metrics.humidity + '%';
-    windspeedEl.textContent = currentWeather.weather_metrics.windspeed;
+    humidityEl.textContent = currentWeather.weather_metrics.humidity + "%";
+    windEl.querySelector(".metric-value").textContent =
+      currentWeather.weather_metrics.windspeed;
+    windEl.querySelector(".metric-unit").textContent =
+      this.units == WeatherComponent.IMPERIAL_UNITS ? "mph" : "km/h";
     precipitationEl.textContent = currentWeather.weather_metrics.precipitation;
   }
 
@@ -49,7 +55,7 @@ export class CurrentWeather extends WeatherComponent {
       city: this.addressApi.address.state,
       date: this.api.current_weather.time,
       weather_metrics: {
-        feels_like: this.api.hourly.apparent_temperature[curHourIdx],
+        feels_like: Math.round(this.api.hourly.apparent_temperature[curHourIdx]),
         humidity: this.api.hourly.relative_humidity_2m[curHourIdx],
         precipitation: this.api.hourly.precipitation[curHourIdx],
         windspeed: this.api.current_weather.windspeed,

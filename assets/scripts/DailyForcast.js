@@ -29,18 +29,17 @@ export class DailyForcast extends WeatherComponent {
     const card = document.querySelector(
       `.daily-forcast-card:nth-child(${data.order})`
     );
-    card.querySelector(".day").textContent = this.getDay(data.date);
+    card.querySelector(".day").textContent = this.getDayName(data.date);
 
     card.querySelector(
       ".daily-forcast-icon"
     ).src = `./assets/images/${this.getWeatherIcon(data.weathercode)}`;
 
-    // TODO: innerHTML to handel &deg; (search for other ways)
-    card.querySelector(".temperature .high").innerHTML = `${data.max}&deg;`;
-    card.querySelector(".temperature .low").innerHTML = `${data.min}&deg;`;
+    card.querySelector(".temperature .high").textContent = `${data.max}°`;
+    card.querySelector(".temperature .low").textContent = `${data.min}°`;
   }
 
-  getDay(date) {
+  getDayName(date) {
     return new Date(date).toLocaleDateString("en-US", { weekday: "short" });
   }
 }

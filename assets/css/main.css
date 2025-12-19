@@ -37,6 +37,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9px;
 
+  z-index: 50;
+
   transition: all 0.3s;
 
   position: absolute;
@@ -45,6 +47,8 @@
 }
 
 .dropdown-btn {
+  display: flex;
+  justify-content: space-between;
   padding: 0.8rem 1.6rem;
   width: 100%;
   text-align: left;
@@ -64,6 +68,26 @@
 
 .dropdown-section + .dropdown-section {
   border-top: 2px solid hsl(243, 23%, 24%);
+}
+
+.units-dropdown button:not(#switch-units):not(.selected-metric):hover {
+  background: none;
+}
+
+.dropdown-section button:hover {
+    cursor: default;
+}
+
+.selected-metric {
+  background-color: hsl(243, 23%, 30%);
+}
+
+.checkmark-icon {
+  visibility: hidden;
+}
+
+.selected-metric .checkmark-icon {
+  visibility: visible;
 }
 
 /*******************************/
@@ -361,7 +385,7 @@
 }
 
 .hourly-forcast-card .hour {
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 .hourly-forcast-card .degree {

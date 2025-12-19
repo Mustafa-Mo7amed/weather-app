@@ -44,21 +44,65 @@
             <img src="assets/images/icon-dropdown.svg" alt="down arrow icon" />
           </button>
           <div class="units-dropdown hidden-dropdown">
-            <button class="btn dropdown-btn">Switch to Imperial</button>
+            <button class="btn dropdown-btn" id="switch-units">
+              Switch to Imperial
+            </button>
             <div class="dropdown-section">
               <p class="dropdown-section-title">Temperature</p>
-              <button class="btn dropdown-btn">Celsius(&deg;C)</button>
-              <button class="btn dropdown-btn">Fehrenheit(&deg;F)</button>
+              <button class="btn dropdown-btn selected-metric">
+                <span>Celsius(&deg;C)</span>
+                <img
+                  class="checkmark-icon"
+                  src="./assets/images/icon-checkmark.svg"
+                  alt="checkmark icon"
+                />
+              </button>
+              <button class="btn dropdown-btn">
+                <span>Fehrenheit(&deg;F)</span>
+                <img
+                  class="checkmark-icon"
+                  src="./assets/images/icon-checkmark.svg"
+                  alt="checkmark icon"
+                />
+              </button>
             </div>
             <div class="dropdown-section">
               <p class="dropdown-section-title">Wind Speed</p>
-              <button class="btn dropdown-btn">km/h</button>
-              <button class="btn dropdown-btn">mph</button>
+              <button class="btn dropdown-btn selected-metric">
+                <span>km/h</span>
+                <img
+                  class="checkmark-icon"
+                  src="./assets/images/icon-checkmark.svg"
+                  alt="checkmark icon"
+                />
+              </button>
+              <button class="btn dropdown-btn">
+                <span>mph</span>
+                <img
+                  class="checkmark-icon"
+                  src="./assets/images/icon-checkmark.svg"
+                  alt="checkmark icon"
+                />
+              </button>
             </div>
             <div class="dropdown-section">
               <p class="dropdown-section-title">Precipitation</p>
-              <button class="btn dropdown-btn">Millimeters (mm)</button>
-              <button class="btn dropdown-btn">Inches (in)</button>
+              <button class="btn dropdown-btn selected-metric">
+                <span>Millimeters (mm)</span>
+                <img
+                  class="checkmark-icon"
+                  src="./assets/images/icon-checkmark.svg"
+                  alt="checkmark icon"
+                />
+              </button>
+              <button class="btn dropdown-btn">
+                <span>Inches (in)</span>
+                <img
+                  class="checkmark-icon"
+                  src="./assets/images/icon-checkmark.svg"
+                  alt="checkmark icon"
+                />
+              </button>
             </div>
           </div>
         </nav>
@@ -98,17 +142,19 @@
                 src="assets/images/icon-rain.webp"
                 alt="today's wether icon"
               />
-              <span class="temperature-degree"
-                ><span>20</span
-                ><sup class="degree-symbol degree-symbol--large">o</sup></span
-              >
+              <span class="temperature-degree">
+                <span>20</span
+                ><sup class="degree-symbol degree-symbol--large">o</sup>
+              </span>
             </div>
           </div>
           <div class="weather-metrics">
             <div class="card feels-like">
               <p class="metric-title">Feels Like</p>
               <p class="metric-value-wrapper">
-                <span class="metric-value">18</span><sup class="degree-symbol degree-symbol--small">&deg;</sup>
+                <span class="metric-value">18</span
+                ><sup class="degree-symbol degree-symbol--small">&deg;</sup
+                ><span class="metric-unit"></span>
               </p>
             </div>
 
@@ -230,13 +276,13 @@
               />
             </button>
             <div class="choose-day-dropdown hidden-dropdown">
-              <button class="choose-day-btn">Monday</button>
-              <button class="choose-day-btn">Tuesday</button>
-              <button class="choose-day-btn">Wednesday</button>
-              <button class="choose-day-btn">Thursday</button>
-              <button class="choose-day-btn">Friday</button>
-              <button class="choose-day-btn">Saturday</button>
-              <button class="choose-day-btn">Sunday</button>
+              <button class="choose-day-btn" data-index="0">Monday</button>
+              <button class="choose-day-btn" data-index="1">Tuesday</button>
+              <button class="choose-day-btn" data-index="2">Wednesday</button>
+              <button class="choose-day-btn" data-index="3">Thursday</button>
+              <button class="choose-day-btn" data-index="4">Friday</button>
+              <button class="choose-day-btn" data-index="5">Saturday</button>
+              <button class="choose-day-btn" data-index="6">Sunday</button>
             </div>
           </div>
           <div class="hourly-forcast-cards-box">
