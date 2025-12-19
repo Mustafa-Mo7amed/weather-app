@@ -52,7 +52,7 @@ export class CurrentWeather extends WeatherComponent {
       temperature: Math.round(this.api.current_weather.temperature),
       weathercode: this.api.current_weather.weathercode,
       country: this.addressApi.address.country,
-      city: this.addressApi.address.state,
+      city: this.addressApi.address.city || this.addressApi.address.state,
       date: this.api.current_weather.time,
       weather_metrics: {
         feels_like: Math.round(this.api.hourly.apparent_temperature[curHourIdx]),

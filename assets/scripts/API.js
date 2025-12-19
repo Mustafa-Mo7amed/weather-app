@@ -1,21 +1,10 @@
 export class API {
-  static #instance = null;
-
-  constructor() {
-    if (API.#instance) {
-      throw new Error(
-        "Cannot instantiate API directly. Use API.getInstance() instead!"
-      );
-    }
-    API.#instance = this;
-  }
+  constructor() {}
 
   static async getInstance(lat, lng) {
-    if (!API.#instance) {
-      API.#instance = new API();
-      await API.#instance.#FetchData(lat, lng);
-    }
-    return API.#instance;
+    const instance = new API();
+    await instance.#FetchData(lat, lng);
+    return instance;
   }
 
   async #FetchData(lat, lng) {
@@ -26,7 +15,8 @@ export class API {
         latitude: lat,
         longitude: lng,
         current_weather: true,
-        hourly: "temperature_2m,precipitation,apparent_temperature,relative_humidity_2m,weathercode",
+        hourly:
+          "temperature_2m,precipitation,apparent_temperature,relative_humidity_2m,weathercode",
         daily: "temperature_2m_max,temperature_2m_min,weathercode",
       });
 
@@ -38,7 +28,8 @@ export class API {
         latitude: lat,
         longitude: lng,
         current_weather: true,
-        hourly: "temperature_2m,precipitation,apparent_temperature,relative_humidity_2m,weathercode",
+        hourly:
+          "temperature_2m,precipitation,apparent_temperature,relative_humidity_2m,weathercode",
         daily: "temperature_2m_max,temperature_2m_min,weathercode",
         temperature_unit: "fahrenheit",
         wind_speed_unit: "mph",

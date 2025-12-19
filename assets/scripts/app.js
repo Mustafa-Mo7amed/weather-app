@@ -3,9 +3,12 @@ import { CurrentWeather } from "./CurrentWeather.js";
 import { WeatherComponent } from "./WeatherComponent.js";
 import { DailyForcast } from "./DailyForcast.js";
 import { HourlyForcast } from "./HourlyForcast.js";
+import { Search } from "./Search.js";
 
 class App {
   constructor() {
+    // initializing components
+    new Search();
     this.initializeAPI(WeatherComponent.STANDARD_UNITS);
     const unitsBtn = document.querySelector(".units-btn");
     unitsBtn.addEventListener("click", this.unitsHandler);
