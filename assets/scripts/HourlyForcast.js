@@ -1,6 +1,7 @@
 import { WeatherComponent } from "./WeatherComponent.js";
 
 export class HourlyForcast extends WeatherComponent {
+  static previousEvents = null;
   constructor(apiInstance, units) {
     super();
     if (units === WeatherComponent.STANDARD_UNITS) {
@@ -11,6 +12,33 @@ export class HourlyForcast extends WeatherComponent {
 
     this.daysBtn = document.querySelector(".days-btn");
     const dropdown = document.querySelector(".choose-day-dropdown");
+
+    if (HourlyForcast.previousEvents) {
+      HourlyForcast.previousEvents.forEach((event) =>
+        event.element.removeEventListener(event.type, event.handler)
+      );
+    }
+
+    HourlyForcast.previousEvents = [];
+
+    HourlyForcast.previousEvents.push({
+      element: dropdown,
+      type: "click",
+      handler: this.dropdownHandler,
+    });
+
+    HourlyForcast.previousEvents.push({
+      element: this.daysBtn,
+      type: "click",
+      handler: this.chooseDayHandler,
+    });
+
+    HourlyForcast.previousEvents.push({
+      element: document,
+      type: "click",
+      handler: this.closeChooseDayDropdownHandler,
+    });
+
     dropdown.addEventListener("click", this.dropdownHandler);
     this.daysBtn.addEventListener("click", this.chooseDayHandler);
     document.addEventListener("click", this.closeChooseDayDropdownHandler);
@@ -66,7 +94,7 @@ export class HourlyForcast extends WeatherComponent {
 
   chooseDayHandler = (event) => {
     event.stopPropagation();
-
+    
     const dropdown = document.querySelector(".choose-day-dropdown");
     dropdown.classList.toggle("show-dropdown");
 

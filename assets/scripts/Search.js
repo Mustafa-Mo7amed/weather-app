@@ -35,7 +35,11 @@ export class Search extends WeatherComponent {
     const searchResult = event.target.closest("p");
     if (!searchResult.classList.contains("search-result")) return;
     this.searchDropdown.classList.remove("show-dropdown");
-    this.render(searchResult.dataset.lat, searchResult.dataset.lng);
+    const lat = searchResult.dataset.lat;
+    const lng = searchResult.dataset.lng;
+    sessionStorage.setItem('current_latitude', lat);
+    sessionStorage.setItem('current_longitude', lng);
+    this.render(lat, lng);
   };
 
   searchBtnHandler = async (event) => {
