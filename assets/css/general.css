@@ -156,7 +156,7 @@ body {
 
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9px;
-  
+
   padding: 1.2rem;
 }
 
@@ -194,4 +194,8 @@ body {
   outline: 2.5px solid #ff7c0a;
   outline-offset: 3.5px;
   border-radius: 9px;
+}
+
+.display-none {
+  display: none !important;
 }

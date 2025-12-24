@@ -29,6 +29,28 @@
     </style>
   </head>
   <body>
+    <template id="api-error-template">
+      <div class="api-error-container">
+        <img
+          src="assets/images/icon-error.svg"
+          alt="error icon"
+          class="api-error-icon"
+        />
+        <p class="api-error-title">Something went wrong</p>
+        <p class="api-error-message">
+          We couldn't connect to the server (API error). Please try again in a
+          few moments.
+        </p>
+        <button class="btn retry-btn">
+          <img
+            src="assets/images/icon-retry.svg"
+            alt="retry icon"
+            class="retry-icon"
+          />
+          <span>Retry</span>
+        </button>
+      </div>
+    </template>
     <div class="container">
       <header class="header">
         <nav class="main-nav">
@@ -114,7 +136,7 @@
         <h1 class="heading-primary">How's the sky looking today?</h1>
       </header>
       <section class="search-section">
-        <div class="search-container">
+        <form class="search-container">
           <img
             class="search-icon"
             src="assets/images/icon-search.svg"
@@ -125,8 +147,8 @@
             class="search-textbox white-focus"
             placeholder="Search for place..."
           />
-          <button class="btn search-btn blue-focus">Search</button>
-        </div>
+          <button type="submit" class="btn search-btn blue-focus">Search</button>
+        </form>
         <div class="search-results hidden-dropdown"></div>
         <p class="hidden-no-search-results"></p>
         <template id="search-result-template">

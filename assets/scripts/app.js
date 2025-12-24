@@ -31,8 +31,13 @@ class App {
   }
 
   async initComponent(lat, lng, units) {
-    const api = await API.getInstance(lat, lng);
-
+    let api = null;
+    try {
+      api = await API.getInstance(lat, lng);
+    } catch (err) {
+      this.renderApiError();
+      return;
+    }
     console.log(api.standardData);
     console.log(api.imperialData);
     console.log(api.addressData);
@@ -92,6 +97,32 @@ class App {
       dropdown.classList.remove("show-dropdown");
     }
   };
+
+  renderApiError() {
+    const heading = document.querySelector(".heading-primary");
+    const searchSection = document.querySelector(".search-section");
+    const weatherSection = document.querySelector(".weather-section");
+
+    heading.classList.add("display-none");
+    searchSection.classList.add("display-none");
+    weatherSection.classList.add("display-none");
+
+    const template = document.getElementById("api-error-template");
+    const fragment = document.importNode(template.content, true);
+
+    const retryBtn = fragment.querySelector(".retry-btn");
+    retryBtn.addEventListener(
+      "click",
+      () => {
+        window.location.reload();
+      },
+      {
+        once: true,
+      }
+    );
+
+    document.querySelector(".container").appendChild(fragment);
+  }
 }
 
 new App();

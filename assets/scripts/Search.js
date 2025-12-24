@@ -13,7 +13,10 @@ export class Search extends WeatherComponent {
     this.searchDropdown.addEventListener("click", this.searchResultHandler);
 
     this.searchBtn = document.querySelector(".search-btn");
-    this.searchBtn.addEventListener("click", this.searchBtnHandler);
+
+    this.searchForm = document.querySelector(".search-container");
+    this.searchForm.addEventListener("submit", this.searchBtnHandler);
+
     document.addEventListener("click", this.closeSearchDropdownHandler);
   }
 
@@ -44,6 +47,7 @@ export class Search extends WeatherComponent {
   };
 
   searchBtnHandler = async (event) => {
+    event.preventDefault();
     event.stopPropagation();
 
     const searchInput = document.querySelector(".search-textbox").value;

@@ -289,6 +289,10 @@
   font-weight: 400;
 }
 
+/*******************************/
+/* DAILY FORCAST, WEATHER SECTION */
+/*******************************/
+
 .daily-forcast-day-cards {
   display: flex;
   justify-content: space-between;
@@ -312,6 +316,10 @@
   display: flex;
   gap: 3.2rem;
 }
+
+/*******************************/
+/* HOURLY FORCAST, WEATHER SECTION */
+/*******************************/
 
 .hourly-forcast {
   display: flex;
@@ -426,4 +434,44 @@
 
 .hourly-forcast-icon {
   height: 5rem;
+}
+
+
+
+/*******************************/
+/* API ERRORS */
+/*******************************/
+
+.api-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  width: 35vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.api-error-icon {
+  height: 4.8rem;
+  width: 4.8rem;
+}
+
+.api-error-title {
+  font-size: 4.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.api-error-message {
+  color: #ffffff83;
+  font-size: 2rem;
+}
+
+.retry-btn {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  
+  padding: 1.2rem;
 }
