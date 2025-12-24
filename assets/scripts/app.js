@@ -13,7 +13,7 @@ class App {
       (pos) => {
         sessionStorage.setItem("current_latitude", pos.coords.latitude);
         sessionStorage.setItem("current_longitude", pos.coords.longitude);
-        this.initializeAPI(
+        this.initComponent(
           pos.coords.latitude,
           pos.coords.longitude,
           WeatherComponent.STANDARD_UNITS
@@ -30,7 +30,7 @@ class App {
     document.addEventListener("click", this.switchUnitsHandler);
   }
 
-  async initializeAPI(lat, lng, units) {
+  async initComponent(lat, lng, units) {
     const api = await API.getInstance(lat, lng);
 
     console.log(api.standardData);
@@ -65,7 +65,7 @@ class App {
       .querySelectorAll(".dropdown-section button")
       .forEach((btn) => btn.classList.toggle("selected-metric"));
 
-    this.initializeAPI(
+    this.initComponent(
       sessionStorage.getItem("current_latitude"),
       sessionStorage.getItem("current_longitude"),
       isImperial

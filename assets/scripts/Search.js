@@ -5,6 +5,7 @@ import { DailyForcast } from "./DailyForcast.js";
 import { HourlyForcast } from "./HourlyForcast.js";
 
 export class Search extends WeatherComponent {
+  static #LOCATION_NOT_FOUND = "not_found";
   constructor() {
     super();
 
@@ -37,19 +38,38 @@ export class Search extends WeatherComponent {
     this.searchDropdown.classList.remove("show-dropdown");
     const lat = searchResult.dataset.lat;
     const lng = searchResult.dataset.lng;
-    sessionStorage.setItem('current_latitude', lat);
-    sessionStorage.setItem('current_longitude', lng);
+    sessionStorage.setItem("current_latitude", lat);
+    sessionStorage.setItem("current_longitude", lng);
     this.render(lat, lng);
   };
 
   searchBtnHandler = async (event) => {
     event.stopPropagation();
+
     const searchInput = document.querySelector(".search-textbox").value;
     if (!searchInput) return;
-    this.searchDropdown.textContent = "";
-    this.searchDropdown.classList.add("show-dropdown");
 
     const results = await this.getCoordsFromAddress(searchInput);
+
+    const weatherSection = document.querySelector(".weather-section");
+    const noSearchResults = document.querySelector(".hidden-no-search-results");
+
+    if (results === Search.#LOCATION_NOT_FOUND) {
+      weatherSection.classList.add("hidden-component");
+      noSearchResults.classList.add("show-no-search-results");
+      noSearchResults.textContent = "No search results found!";
+      return;
+    }
+
+    if (weatherSection.classList.contains("hidden-component"))
+      weatherSection.classList.remove("hidden-component");
+
+    if (noSearchResults.classList.contains("show-no-search-results")) {
+      noSearchResults.classList.remove("show-no-search-results");
+      noSearchResults.textContent = "";
+    }
+    this.searchDropdown.textContent = "";
+    this.searchDropdown.classList.add("show-dropdown");
 
     results.forEach((res) => {
       const resultTemplate = document.getElementById("search-result-template");
@@ -84,7 +104,7 @@ export class Search extends WeatherComponent {
     } catch (error) {
       throw "couldn't search for location: " + error;
     }
-    if (!data[0]) throw "Location not found";
+    if (!data[0]) return Search.#LOCATION_NOT_FOUND;
     data = data.map((result) => {
       return {
         lat: result.lat,

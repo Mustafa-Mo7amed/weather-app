@@ -179,6 +179,32 @@
   margin-top: 0.4rem;
 }
 
+.hidden-no-search-results {
+  color: #fff;
+  
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  
+  margin: 0rem auto;
+  
+  content: "";
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-4%, -5%);
+
+  transition: all 0.3s ease;
+}
+
+.show-no-search-results {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-4%, 0);
+
+  margin: 4.8rem;
+}
+
 /*******************************/
 /* WEATHER SECTION */
 /*******************************/
