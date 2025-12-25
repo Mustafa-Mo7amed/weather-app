@@ -62,10 +62,19 @@ export class HourlyForcast extends WeatherComponent {
       });
     }
 
-    this.daysBtn.querySelector("span").textContent = this.getDayName(
-      this.days[0][0].date
-    );
-    this.render(0);
+    const curDayName = sessionStorage.getItem("current_day_name");
+    const curDayIndex = parseInt(sessionStorage.getItem("current_day_index"));
+    if (!curDayName) {
+      const dayName = this.getDayName(this.days[0][0].date);
+      this.daysBtn.querySelector("span").textContent = dayName;
+
+      sessionStorage.setItem("current_day_name", dayName);
+      sessionStorage.setItem("current_day_index", 0);
+      this.render(0);
+    } else {
+      this.daysBtn.querySelector("span").textContent = curDayName;
+      this.render(curDayIndex);
+    }
   }
 
   async render(index) {
@@ -129,9 +138,11 @@ export class HourlyForcast extends WeatherComponent {
     this.render(idx);
     event.currentTarget.classList.toggle("show-dropdown");
 
-    this.daysBtn.querySelector("span").textContent = this.getDayName(
-      this.days[idx][0].date
-    );
+    const dayName = this.getDayName(this.days[idx][0].date);
+    this.daysBtn.querySelector("span").textContent = dayName;
+
+    sessionStorage.setItem("current_day_name", dayName);
+    sessionStorage.setItem("current_day_index", idx);
   };
 
   getDayName(date) {

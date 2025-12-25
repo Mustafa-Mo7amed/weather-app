@@ -23,10 +23,7 @@ export class Search extends WeatherComponent {
   async render(lat, lng) {
     const api = await API.getInstance(lat, lng);
 
-    const units =
-      document.getElementById("switch-units").dataset.imperial === "true"
-        ? WeatherComponent.STANDARD_UNITS
-        : WeatherComponent.IMPERIAL_UNITS;
+    const units = localStorage.getItem("current_units");
 
     new CurrentWeather(api, units);
 
@@ -41,8 +38,8 @@ export class Search extends WeatherComponent {
     this.searchDropdown.classList.remove("show-dropdown");
     const lat = searchResult.dataset.lat;
     const lng = searchResult.dataset.lng;
-    sessionStorage.setItem("current_latitude", lat);
-    sessionStorage.setItem("current_longitude", lng);
+    localStorage.setItem("current_latitude", lat);
+    localStorage.setItem("current_longitude", lng);
     this.render(lat, lng);
   };
 

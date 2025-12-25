@@ -9,20 +9,33 @@ class App {
   constructor() {
     // initializing components
     new Search();
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        sessionStorage.setItem("current_latitude", pos.coords.latitude);
-        sessionStorage.setItem("current_longitude", pos.coords.longitude);
-        this.initComponent(
-          pos.coords.latitude,
-          pos.coords.longitude,
-          WeatherComponent.STANDARD_UNITS
-        );
-      },
-      (err) => {
-        throw "Couldn't fetch your location: " + err;
-      }
-    );
+    localStorage.getItem;
+    const curLat = localStorage.getItem("current_latitude");
+    const curLng = localStorage.getItem("current_longitude");
+    const curUnits = localStorage.getItem("current_units");
+    if (!curLat || !curLng || !curUnits) {
+      console.log("got new coords", curLat, curLng, curUnits);
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          localStorage.setItem("current_latitude", pos.coords.latitude);
+          localStorage.setItem("current_longitude", pos.coords.longitude);
+          localStorage.setItem(
+            "current_units",
+            WeatherComponent.STANDARD_UNITS
+          );
+          this.initComponent(
+            pos.coords.latitude,
+            pos.coords.longitude,
+            WeatherComponent.STANDARD_UNITS
+          );
+        },
+        (err) => {
+          throw "Couldn't fetch your location: " + err;
+        }
+      );
+    } else {
+      this.initComponent(curLat, curLng, curUnits);
+    }
     const unitsBtn = document.querySelector(".units-btn");
     unitsBtn.addEventListener("click", this.unitsHandler);
     document.addEventListener("click", this.closeUnitsDropdownHandler);
@@ -57,13 +70,12 @@ class App {
   switchUnitsHandler = (event) => {
     if (!event.target.matches("#switch-units")) return;
 
-    const isImperial = event.target.dataset.imperial === "true";
-    if (isImperial) {
+    if (localStorage.getItem("current_units") === WeatherComponent.STANDARD_UNITS) {
       event.target.textContent = "Switch to Standard";
-      event.target.dataset.imperial = "false";
+      localStorage.setItem("current_units", WeatherComponent.IMPERIAL_UNITS);
     } else {
       event.target.textContent = "Switch to Imperial";
-      event.target.dataset.imperial = "true";
+      localStorage.setItem("current_units", WeatherComponent.STANDARD_UNITS);
     }
 
     document
@@ -71,11 +83,9 @@ class App {
       .forEach((btn) => btn.classList.toggle("selected-metric"));
 
     this.initComponent(
-      sessionStorage.getItem("current_latitude"),
-      sessionStorage.getItem("current_longitude"),
-      isImperial
-        ? WeatherComponent.IMPERIAL_UNITS
-        : WeatherComponent.STANDARD_UNITS
+      localStorage.getItem("current_latitude"),
+      localStorage.getItem("current_longitude"),
+      localStorage.getItem("current_units")
     );
 
     document.querySelector(".units-dropdown").classList.remove("show-dropdown");
