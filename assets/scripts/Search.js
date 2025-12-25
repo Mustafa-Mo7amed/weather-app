@@ -38,8 +38,8 @@ export class Search extends WeatherComponent {
     this.searchDropdown.classList.remove("show-dropdown");
     const lat = searchResult.dataset.lat;
     const lng = searchResult.dataset.lng;
-    localStorage.setItem("current_latitude", lat);
-    localStorage.setItem("current_longitude", lng);
+    sessionStorage.setItem("current_latitude", lat);
+    sessionStorage.setItem("current_longitude", lng);
     this.render(lat, lng);
   };
 
