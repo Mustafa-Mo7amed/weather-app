@@ -14,6 +14,9 @@ export class CurrentWeather extends WeatherComponent {
   }
 
   render() {
+    this.finishedLoading(document.querySelector(".current-weather"));
+    this.hideDotsLoader();
+
     const currentWeather = this.currentWeather();
 
     const dateEl = document.querySelector(".date");
@@ -30,21 +33,35 @@ export class CurrentWeather extends WeatherComponent {
       currentWeather.weathercode
     )}`;
 
-    const feelsLikeEl = document.querySelector(".feels-like .metric-value");
+    const feelsLikeEl = document.querySelector(".feels-like");
     const humidityEl = document.querySelector(".humidity .metric-value");
     const windEl = document.querySelector(".wind");
-    const precipitationEl = document.querySelector(
-      ".precipitation .metric-value"
-    );
+    const precipitationEl = document.querySelector(".precipitation");
 
-    feelsLikeEl.textContent = currentWeather.weather_metrics.feels_like;
+    feelsLikeEl.querySelector(".metric-value").textContent =
+      currentWeather.weather_metrics.feels_like;
+    feelsLikeEl.querySelector(".degree-symbol").textContent = "°";
     humidityEl.textContent = currentWeather.weather_metrics.humidity + "%";
     windEl.querySelector(".metric-value").textContent =
       currentWeather.weather_metrics.windspeed;
     windEl.querySelector(".metric-unit").textContent =
       this.units == WeatherComponent.IMPERIAL_UNITS ? "mph" : "km/h";
-    precipitationEl.textContent = currentWeather.weather_metrics.precipitation;
+    precipitationEl.querySelector(".metric-value").textContent =
+      currentWeather.weather_metrics.precipitation;
+    precipitationEl.querySelector(".metric-unit").textContent =
+      this.units == WeatherComponent.IMPERIAL_UNITS ? "in" : "mm";
   }
+
+  finishedLoading = (element) => {
+    element.classList.remove("hidden-while-loading");
+    element.classList.add("shown-after-loading");
+    element.classList.add("show-background-image");
+  };
+
+  hideDotsLoader = () => {
+    const dots = document.querySelector(".dots-loader");
+    dots.classList.add("display-none");
+  };
 
   currentWeather() {
     const curHourIdx = this.getNearestHourIndex();
@@ -55,7 +72,9 @@ export class CurrentWeather extends WeatherComponent {
       city: this.addressApi.address.city || this.addressApi.address.state,
       date: this.api.current_weather.time,
       weather_metrics: {
-        feels_like: Math.round(this.api.hourly.apparent_temperature[curHourIdx]),
+        feels_like: Math.round(
+          this.api.hourly.apparent_temperature[curHourIdx]
+        ),
         humidity: this.api.hourly.relative_humidity_2m[curHourIdx],
         precipitation: this.api.hourly.precipitation[curHourIdx],
         windspeed: this.api.current_weather.windspeed,

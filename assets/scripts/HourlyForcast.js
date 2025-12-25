@@ -68,7 +68,9 @@ export class HourlyForcast extends WeatherComponent {
     this.render(0);
   }
 
-  render(index) {
+  async render(index) {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
     const day = this.days[index];
     const cards = document.querySelectorAll(".hourly-forcast-card");
     for (let i = 0; i < cards.length; ++i) {
@@ -81,6 +83,9 @@ export class HourlyForcast extends WeatherComponent {
       );
       card.querySelector(".degree").textContent =
         Math.round(day[i].temperature) + "°";
+
+      this.finishedLoading(card);
+      await sleep(50);
     }
   }
 
@@ -92,9 +97,14 @@ export class HourlyForcast extends WeatherComponent {
     }
   }
 
+  finishedLoading = (element) => {
+    element.classList.remove("hidden-while-loading");
+    element.classList.add("shown-after-loading");
+  };
+
   chooseDayHandler = (event) => {
     event.stopPropagation();
-    
+
     const dropdown = document.querySelector(".choose-day-dropdown");
     dropdown.classList.toggle("show-dropdown");
 

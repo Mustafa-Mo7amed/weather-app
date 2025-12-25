@@ -12,7 +12,9 @@ export class DailyForcast extends WeatherComponent {
     this.render();
   }
 
-  render() {
+  async render() {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
     for (let order = 0; order < 7; ++order) {
       const data = {
         order: order + 1,
@@ -22,6 +24,7 @@ export class DailyForcast extends WeatherComponent {
         min: Math.round(this.daily.temperature_2m_min[order]),
       };
       this.renderCard(data);
+      await sleep(50);
     }
   }
 
@@ -29,6 +32,9 @@ export class DailyForcast extends WeatherComponent {
     const card = document.querySelector(
       `.daily-forcast-card:nth-child(${data.order})`
     );
+
+    this.finishedLoading(card);
+
     card.querySelector(".day").textContent = this.getDayName(data.date);
 
     card.querySelector(
@@ -38,6 +44,11 @@ export class DailyForcast extends WeatherComponent {
     card.querySelector(".temperature .high").textContent = `${data.max}°`;
     card.querySelector(".temperature .low").textContent = `${data.min}°`;
   }
+
+  finishedLoading = (card) => {
+    card.classList.remove("hidden-while-loading");
+    card.classList.add("shown-after-loading");
+  };
 
   getDayName(date) {
     return new Date(date).toLocaleDateString("en-US", { weekday: "short" });
