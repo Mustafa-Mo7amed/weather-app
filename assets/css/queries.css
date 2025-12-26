@@ -148,4 +148,8 @@
   html {
     font-size: 37.5%;
   }
+
+  .temperature-degree {
+    font-size: 6.8rem;
+  }
 }
