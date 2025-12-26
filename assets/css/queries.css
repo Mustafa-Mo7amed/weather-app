@@ -70,8 +70,13 @@
   html {
     font-size: 62.5%;
   }
+
   .weather-section {
     grid-template-columns: 1fr;
+  }
+
+  .current-weather.show-background-image {
+    background-image: url("../images/bg-today-small.svg");
   }
 
   .hourly-forcast-header .sub-heading {
@@ -127,7 +132,20 @@
 /*******************************/
 
 @media (max-width: 25em) {
-    .logo img {
-        height: 2rem;
-    }
+  html {
+    font-size: 50%;
+  }
+  .logo img {
+    height: 3rem;
+  }
+}
+
+/*******************************/
+/* BELOW 310px (tiny phones) */
+/*******************************/
+
+@media (max-width: 19.5em) {
+  html {
+    font-size: 37.5%;
+  }
 }

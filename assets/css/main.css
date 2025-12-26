@@ -116,7 +116,7 @@
 .search-icon {
   position: absolute;
   top: 50%;
-  left: 22px;
+  left: 14px;
   transform: translateY(-50%);
 
   background-image: url("../images/icon-search.svg");
