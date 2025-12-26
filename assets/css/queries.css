@@ -135,8 +135,13 @@
   html {
     font-size: 50%;
   }
+
   .logo img {
     height: 3rem;
+  }
+
+  .temperature-degree {
+    font-size: 6.8rem;
   }
 }
 
@@ -147,9 +152,5 @@
 @media (max-width: 19.5em) {
   html {
     font-size: 37.5%;
-  }
-
-  .temperature-degree {
-    font-size: 6.8rem;
   }
 }
