@@ -77,7 +77,7 @@ export class CurrentWeather extends WeatherComponent {
         ),
         humidity: this.api.hourly.relative_humidity_2m[curHourIdx],
         precipitation: this.api.hourly.precipitation[curHourIdx],
-        windspeed: this.api.current_weather.windspeed,
+        windspeed: Math.round(this.api.current_weather.windspeed),
       },
     };
   }

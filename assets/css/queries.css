@@ -1,0 +1,133 @@
+/*******************************/
+/* BELOW 1220px (landscape tablets) */
+/*******************************/
+
+@media (max-width: 78em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/*******************************/
+/* BELOW 1015px (tablets) */
+/*******************************/
+
+@media (max-width: 63.5em) {
+  .weather-section {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .weather-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .daily-forcast-day-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hourly-forcast-cards-box {
+    height: 93rem;
+  }
+}
+
+/*******************************/
+/* BELOW 915px (smaller tablets) */
+/*******************************/
+
+@media (max-width: 58em) {
+  .weather-section {
+    grid-template-columns: 5fr 3.5fr;
+  }
+
+  .hourly-forcast-header .sub-heading {
+    font-size: 2rem;
+  }
+}
+
+/*******************************/
+/* BELOW 710px (tiny tablets) */
+/*******************************/
+
+@media (max-width: 44em) {
+  html {
+    font-size: 43.75%;
+  }
+
+  .daily-forcast-day-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hourly-forcast-cards-box {
+    height: 110rem;
+  }
+}
+
+/*******************************/
+/* BELOW 624px (large phones) */
+/*******************************/
+
+@media (max-width: 39em) {
+  html {
+    font-size: 62.5%;
+  }
+  .weather-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hourly-forcast-header .sub-heading {
+    font-size: 2.4rem;
+  }
+
+  .hourly-forcast-cards-box {
+    height: 50rem;
+  }
+
+  .current-weather {
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    padding-top: 3.2rem;
+  }
+
+  .icon-temperature-wrapper {
+    justify-self: center;
+  }
+
+  .current-weather-icon {
+    height: 16rem;
+  }
+
+  .temperature-degree {
+    font-size: 10.8rem;
+  }
+}
+
+/*******************************/
+/* BELOW 500px (phones) */
+/*******************************/
+
+@media (max-width: 31.25em) {
+  .search-container {
+    grid-template-columns: 1fr;
+  }
+
+  .search-textbox {
+    height: 5rem;
+
+    font-size: 2.4rem;
+  }
+
+  .search-icon {
+    top: 20%;
+  }
+}
+
+/*******************************/
+/* BELOW 400px (smaller phones) */
+/*******************************/
+
+@media (max-width: 25em) {
+    .logo img {
+        height: 2rem;
+    }
+}
