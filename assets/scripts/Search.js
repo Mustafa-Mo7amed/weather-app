@@ -21,6 +21,10 @@ export class Search extends WeatherComponent {
   }
 
   async render(lat, lng) {
+    CurrentWeather.startLoading();
+    DailyForcast.startLoading();
+    HourlyForcast.startLoading();
+
     const api = await API.getInstance(lat, lng);
 
     const units = localStorage.getItem("current_units");
@@ -76,7 +80,7 @@ export class Search extends WeatherComponent {
       const resultTemplate = document.getElementById("search-result-template");
       const fragment = document.importNode(resultTemplate.content, true);
       const searchResult = fragment.querySelector(".search-result");
-      searchResult.textContent = `${res.city}, ${res.country}`;
+      searchResult.textContent = `${res.city ? res.city + ", " : ""}${res.country}`;
       searchResult.dataset.lat = res.lat;
       searchResult.dataset.lng = res.lng;
       this.searchDropdown.append(searchResult);

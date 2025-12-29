@@ -52,6 +52,17 @@ export class CurrentWeather extends WeatherComponent {
       this.units == WeatherComponent.IMPERIAL_UNITS ? "in" : "mm";
   }
 
+  static startLoading() {
+    const currentWeather = document.querySelector(".current-weather");
+
+    currentWeather.classList.add("hidden-while-loading");
+    currentWeather.classList.remove("shown-after-loading");
+    currentWeather.classList.remove("show-background-image");
+
+    const dots = document.querySelector(".dots-loader");
+    dots.classList.remove("display-none");
+  }
+
   finishedLoading = (element) => {
     element.classList.remove("hidden-while-loading");
     element.classList.add("shown-after-loading");

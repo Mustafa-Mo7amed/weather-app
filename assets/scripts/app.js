@@ -13,7 +13,6 @@ class App {
     const curLng = sessionStorage.getItem("current_longitude");
     const curUnits = localStorage.getItem("current_units");
     if (!curLat || !curLng || !curUnits) {
-      console.log("got new coords", curLat, curLng, curUnits);
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           sessionStorage.setItem("current_latitude", pos.coords.latitude);
@@ -45,6 +44,10 @@ class App {
   async initComponent(lat, lng, units) {
     let api = null;
     try {
+      CurrentWeather.startLoading();
+      DailyForcast.startLoading();
+      HourlyForcast.startLoading();
+      
       api = await API.getInstance(lat, lng);
     } catch (err) {
       this.renderApiError();

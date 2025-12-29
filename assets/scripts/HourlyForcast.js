@@ -106,6 +106,14 @@ export class HourlyForcast extends WeatherComponent {
     }
   }
 
+  static startLoading() {
+    const cards = document.querySelectorAll(".hourly-forcast-card");
+    cards.forEach((card) => {
+      card.classList.add("hidden-while-loading");
+      card.classList.remove("shown-after-loading");
+    });
+  }
+
   finishedLoading = (element) => {
     element.classList.remove("hidden-while-loading");
     element.classList.add("shown-after-loading");

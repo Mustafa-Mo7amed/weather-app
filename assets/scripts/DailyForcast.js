@@ -45,6 +45,14 @@ export class DailyForcast extends WeatherComponent {
     card.querySelector(".temperature .low").textContent = `${data.min}°`;
   }
 
+  static startLoading() {
+    const cards = document.querySelectorAll(".daily-forcast-card");
+    cards.forEach((card) => {
+      card.classList.add("hidden-while-loading");
+      card.classList.remove("shown-after-loading");
+    });
+  }
+
   finishedLoading = (card) => {
     card.classList.remove("hidden-while-loading");
     card.classList.add("shown-after-loading");
