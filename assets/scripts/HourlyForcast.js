@@ -119,11 +119,16 @@ export class HourlyForcast extends WeatherComponent {
     element.classList.add("shown-after-loading");
   };
 
+  flipArrowIcon(arrow) {
+    arrow.classList.toggle("flipped-arrow");
+  }
+
   chooseDayHandler = (event) => {
     event.stopPropagation();
 
     const dropdown = document.querySelector(".choose-day-dropdown");
     dropdown.classList.toggle("show-dropdown");
+    this.flipArrowIcon(this.daysBtn.querySelector('img'));
 
     this.renderDropdown();
   };
@@ -136,6 +141,7 @@ export class HourlyForcast extends WeatherComponent {
       !dropdown.contains(event.target)
     ) {
       dropdown.classList.remove("show-dropdown");
+      this.flipArrowIcon(this.daysBtn.querySelector("img"));
     }
   };
 

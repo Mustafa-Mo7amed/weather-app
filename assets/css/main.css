@@ -27,6 +27,14 @@
   height: 1.6rem;
 }
 
+.units-btn img:last-child {
+  transition: all 0.3s ease;
+}
+
+.units-btn img:last-child.flipped-arrow {
+  transform: rotate(180deg);
+}
+
 .units-dropdown {
   width: 20rem;
 
@@ -375,8 +383,12 @@
   font-size: 2rem;
 }
 
-.days-btn .short {
-  display: none;
+.days-btn img {
+  transition: all 0.3s ease;
+}
+
+.days-btn img.flipped-arrow {
+  transform: rotate(180deg);
 }
 
 .choose-day-dropdown {

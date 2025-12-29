@@ -64,9 +64,14 @@ class App {
     new HourlyForcast(api, units);
   }
 
+  flipArrowIcon(arrow) {
+    arrow.classList.toggle('flipped-arrow');
+  }
+
   toggleUnitsDropdown() {
     const unitsDropdown = document.querySelector(".units-dropdown");
     unitsDropdown.classList.toggle("show-dropdown");
+    this.flipArrowIcon(document.querySelector(".units-btn img:last-child"));
   }
 
   switchUnitsHandler = (event) => {
@@ -107,6 +112,7 @@ class App {
       !dropdown.contains(event.target)
     ) {
       dropdown.classList.remove("show-dropdown");
+      this.flipArrowIcon(btn.querySelector('img:last-child'));
     }
   };
 
