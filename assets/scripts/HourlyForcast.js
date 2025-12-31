@@ -151,6 +151,7 @@ export class HourlyForcast extends WeatherComponent {
     const idx = Number(btn.dataset.index);
     this.render(idx);
     event.currentTarget.classList.toggle("show-dropdown");
+    this.flipArrowIcon(this.daysBtn.querySelector("img"));
 
     const dayName = this.getDayName(this.days[idx][0].date);
     this.daysBtn.querySelector("span").textContent = dayName;
