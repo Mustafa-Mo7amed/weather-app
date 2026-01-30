@@ -44,11 +44,15 @@ class App {
   async initComponent(lat, lng, units) {
     let api = null;
     try {
-      CurrentWeather.startLoading();
-      DailyForcast.startLoading();
-      HourlyForcast.startLoading();
-      
-      api = await API.getInstance(lat, lng);
+      api = JSON.parse(sessionStorage.getItem("weather_api_response"));
+      if (!api) {
+        CurrentWeather.startLoading();
+        DailyForcast.startLoading();
+        HourlyForcast.startLoading();
+        
+        api = await API.getInstance(lat, lng);
+        sessionStorage.setItem("weather_api_response", JSON.stringify(api));
+      }
     } catch (err) {
       this.renderApiError();
       return;

@@ -26,6 +26,7 @@ export class Search extends WeatherComponent {
     HourlyForcast.startLoading();
 
     const api = await API.getInstance(lat, lng);
+    sessionStorage.setItem("weather_api_response", JSON.stringify(api));
 
     const units = localStorage.getItem("current_units");
 
