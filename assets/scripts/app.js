@@ -100,6 +100,7 @@ class App {
     );
 
     document.querySelector(".units-dropdown").classList.remove("show-dropdown");
+    this.flipArrowIcon(document.querySelector(".units-btn img:last-child"));
   };
 
   unitsHandler = (event) => {
